@@ -8,7 +8,7 @@ import ThemeStore from "./store/ThemeStore";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider themeStore={ThemeStore}>
+    <Provider themeStore={new ThemeStore()}>
       <App />
     </Provider>
   </React.StrictMode>,

@@ -3,16 +3,19 @@ import TodoProps from "../interfaces/TodoProps";
 import { observer } from "mobx-react";
 import { useStores } from "../hooks/use-stores";
 
-const Todo = ({ title = "Default", children }: TodoProps) => {
+const Todo = ({ children }: TodoProps) => {
   const {
-    themeStore: { color, toggleColor },
+    themeStore: { colors, themeName, toggleTheme },
   } = useStores();
 
   return (
-    <div style={{ color }}>
-      {color}
+    <div
+      data-testid="container"
+      style={{ color: colors.foreground, backgroundColor: colors.background }}
+    >
       {children}
-      <button onClick={toggleColor}>Change Color</button>
+      <br />
+      <button onClick={toggleTheme}>Current theme: {themeName}</button>
     </div>
   );
 };
